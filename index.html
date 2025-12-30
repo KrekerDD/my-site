@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Главная</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+/* ===== ОБЁРТКА ===== */
+.slide-wrap {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 120px);
+}
+
+/* ===== ФОТО ===== */
+.slide-bg img {
+  width: clamp(360px, 35vw, 560px);
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* ===== ТЕКСТ ===== */
+.slide-overlay {
+  max-width: 620px;
+  padding: 50px 40px;
+  background: rgba(0,0,0,.42);
+  color: #fff;
+}
+
+/* ===== ЧЕРЕДОВАНИЕ ===== */
+#section4 .slide-wrap,
+#section5 .slide-wrap {
+  flex-direction: row-reverse;
+}
+
+/* ===== МОБИЛЬНЫЕ ===== */
+@media (max-width: 768px) {
+  .slide-wrap {
+    flex-direction: column;
+  }
+  .slide-bg img {
+    width: 90%;
+    max-height: 40vh;
+  }
+  .slide-overlay {
+    padding: 28px 22px;
+  }
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url("hero.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero-text {
+  color: #fff;
+}
+
+/* ===== MINI PLAYER ===== */
+.mini-player {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.play-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.6);
+  background: rgba(255,255,255,.15);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.track-info {
+  flex: 1;
+}
+
+.track-title {
+  font-size: 14px;
+  opacity: .9;
+  margin-bottom: 6px;
+}
+
+.track-line {
+  width: 100%;
+  height: 2px;
+  background: rgba(255,255,255,.25);
+  cursor: pointer;
+}
+
+.track-progress {
+  height: 100%;
+  width: 0%;
+  background: #fff;
+}
+
+.track-time {
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: .75;
+}
+
+.volume-slider {
+  width: 70px;
+  accent-color: white;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Кариш, привет.</h1>
+    <h1>В конце каждого блока есть песня.</h1>
+    <h1>Если захочешь - можешь читать вместе с ней.</h1>
+    <h2>Тут будет мой небольшой монолог и красивые картинки.</h2>
+  </div>
+</section>
+
+<!-- ===== SECTION 2 ===== -->
+<section id="section2" class="content">
+  <div class="slide-wrap">
+    <div class="slide-bg"><img src="slide1.jpg"></div>
+    <div class="slide-overlay">
+      <h2>Время лечит.</h2>
+      <p>Прошло чуток времени, эмоции поутихли, я наговорил глупостей в крайнем диалоге. Очень обрадовался тому, что мы увиделись и пришли к миру.</p>
+      <p>Мне не описать силу злости на самого себя из-за непонимания, как я мог допустить такую ссору и написать такие глупые и обидные вещи. К слову, ответ я получил достаточно быстро, в этот же день у меня был второй сеанс с психиатором - это очень помогло мне спокойно и без осуждения разложить всё по полочкам.</p>
+      <p>Мне было ужасно неловко и очень не просто открыться чужому человеку, но по итогу отлично провели разбор.</p>
+      <p>Я еще раз подтверждаю, что миру нужны такие врачи, она разложила мне все по полочкам, без осуждения.</p>
+      <p>В общем, респект всем врачам, которые любят свое дело.</p>
+	  <p>"\/"</p>
+      <p>"I know that it hurts sometimes, but it's beautiful".</p>
+
+      <div class="mini-player" data-audio="audio/lil-peep.mp3">
+        <button class="play-btn">▶</button>
+        <div class="track-info">
+          <div class="track-title">Lil Peep — Life Is Beautiful</div>
+          <div class="track-line"><div class="track-progress"></div></div>
+          <div class="track-time"><span class="current-time">0:00</span><span class="duration">0:00</span></div>
+        </div>
+        <input type="range" class="volume-slider" min="0" max="1" step="0.01">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3 ===== -->
+<section id="section3" class="content">
+  <div class="slide-wrap">
+    <div class="slide-bg"><img src="slide2.jpg"></div>
+    <div class="slide-overlay">
+      <h2>Принятие ситуации.</h2>
+      <p>Мы отлично поговорили ночью, но этого безумно мало.</p>
+	  <p>Очень хочу написать тебе, спросить как дела, узнать как в универе и услышать первоклассные сплетни, но понимаю что сейчас вообще не вариант писать. Еще несколько недель назад это было так просто, но теперь как будто беру в руки оружие и направляю на самого себя. (Так же не хотел рушить твою гармонию)</p>
+      <p>Стараюсь не раскисать, мотивации прибавилось примерно в 100 раз, работал до утра, отлично отработал в зале. В конечном итоге безумно хочу стать настоящим мужиком, который так нужен был моей хрупкой даме.</p>
+	  <p>К слову, уже через пару часов после врача мне пришла в голову идея сделать такую страничку со своими мыслями, очень хотелось поделиться с тобой.</p>
+	  <p>Не могу писать тебе, но могу писать тут и представлять, что веду диалог в лс.</p>
+	  <p>"\/"</p>
+	  <p>"Каждый сантиметр твоего тела, станет километрами между нами".</p>
+
+      <div class="mini-player" data-audio="audio/lizer.mp3">
+        <button class="play-btn">▶</button>
+        <div class="track-info">
+          <div class="track-title">Lizer — Между нами</div>
+          <div class="track-line"><div class="track-progress"></div></div>
+          <div class="track-time"><span class="current-time">0:00</span><span class="duration">0:00</span></div>
+        </div>
+        <input type="range" class="volume-slider" min="0" max="1" step="0.01">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4 ===== -->
+<section id="section4" class="content">
+  <div class="slide-wrap">
+    <div class="slide-bg"><img src="slide3.jpg"></div>
+    <div class="slide-overlay">
+      <h2>Закрытая книга.</h2>
+      <p>Теперь хочу сказать о самом важном.</p>
+	  <p>Ты сказала, что для тебя это закрытая книга - и со временем я понял, почему.</p>
+	  <p>Нам действительно было сложно. Мы повзрослели, но часто реагировали не как взрослые люди. Где-то не умели говорить, где-то - слышать, где-то - беречь.</p>
+	  <p>Эту историю нельзя вычеркнуть или обесценить. Она была настоящей, живой и очень значимой. Не потому, что в ней не было боли, а потому что в ней было много опыта, чувств и уроков, которые я только сейчас начинаю по-настоящему понимать.</p>
+	  <p>Я принимаю, что эта книга закрыта. Не из обиды, а из уважения. И, пожалуй, самое ценное, что она мне дала - это понимание того, каким человеком я больше не хочу быть и каким хочу стать.</p>
+	  <p>"\/"</p>
+	  <p>"Я всегда помню о главном, когда засыпаю плавно".</p>
+
+      <div class="mini-player" data-audio="audio/gradusy.mp3">
+        <button class="play-btn">▶</button>
+        <div class="track-info">
+          <div class="track-title">Градусы — Я всегда помню о главном</div>
+          <div class="track-line"><div class="track-progress"></div></div>
+          <div class="track-time"><span class="current-time">0:00</span><span class="duration">0:00</span></div>
+        </div>
+        <input type="range" class="volume-slider" min="0" max="1" step="0.01">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5 ===== -->
+<section id="section3" class="content">
+  <div class="slide-wrap">
+    <div class="slide-bg"><img src="slide4.jpg"></div>
+    <div class="slide-overlay">
+      <h2>Иногда слова не нужны.</h2>
+	  </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6 ===== -->
+<section id="section6" class="content">
+  <div class="slide-wrap">
+    <div class="slide-bg"><img src="slide5.jpg"></div>
+    <div class="slide-overlay">
+      <h2>Новый год - новые возможности.</h2>
+      <p>Самая сложная перестройка - перестройка самого себя.</p>
+	  <p>Мотивация сильна как никогда, в новом году я решительно хочу повзрослеть, хочу быть лучше, по чуть чуть, шаг за шагом закапывать свои минусы и проблемы.</p>
+	  <p>Прямо сейчас самое сложное - отвыкнуть от старых привычек, лень и мой неравномерный график, который я по чуть чуть исправляю, хороший сон = трезвая голова.</p>
+	  <p>Развиваю дальше свои хобби, одно из них ты могла уже заметить.</p>
+	  <p>"\/"</p>
+	  <p>"Ты знаешь, что если я тебе нужен, я здесь".</p>
+
+      <div class="mini-player" data-audio="audio/pharaoh.mp3">
+        <button class="play-btn">▶</button>
+        <div class="track-info">
+          <div class="track-title">PHARAOH — Всему Свое Время</div>
+          <div class="track-line"><div class="track-progress"></div></div>
+          <div class="track-time"><span class="current-time">0:00</span><span class="duration">0:00</span></div>
+        </div>
+        <input type="range" class="volume-slider" min="0" max="1" step="0.01">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 7 ===== -->
+<section id="section7" class="content">
+  <div class="slide-wrap">
+    <div class="slide-bg"><img src="slide6.jpg"></div>
+    <div class="slide-overlay">
+      <h2>Привет.</h2>
+      <p>Я решил написать тебе уже после праздников - без суеты, без эмоций момента, спокойно и честно. Я помню твои слова из нашего последнего разговора и хочу сразу сказать: я их услышал и уважаю. Ты выбрала себя - и это действительно важно.</p>
+	  <p>Я не пишу, чтобы что-то обсуждать, переубеждать или возвращать. Я не хочу нарушать границы, которые ты обозначала.</p>
+	  <p>Мы были вместе восемь лет. И за это время я понял: это была не просто история и не просто привычка. Это была жизнь, в которой я ясно увидел, с какой женщиной я был бы готов пройти её до конца. Осознанно.Спокойно.По-взрослому.</p>
+	  <p>Ты - та самая женщина. Не из прошлого, а по ценности. Та, с которой хочется не бороться и не исправлять друг друга, а беречь. Строить отношения без обид, без абьюза, без постоянной боли. Там, где есть уважение, диалог и тишина, в которой безопасно.</p>
+	  <p>Я понимаю, что тогда мы не справились. Нам действительно было сложно, и проблем было больше, чем мы умели выдерживать. Сейчас я это вижу ясно и беру ответственность за свою часть - без оправданий и без попытки что-то переписать.</p>
+	  <p>Я принимаю, что для тебя эта книга закрыта. Но мне было важно, чтобы ты знала: если в моей жизни когда-нибудь и возможна настоящая семья, то в моём сердце это всегда было связано именно с тобой. Без требований. Без ожиданий. Просто как правда, к которой я пришёл.</p>
+	  <p>Если твой путь сейчас другой - я приму это с уважением и благодарностью за всё, что между нами было. Мне было важно сказать это спокойно и честно.</p>
+	  <p>Береги себя.</p>
+	  <p>"\/"</p>
+	  <p>Ещё одним холодным утром - руки без слов</p>
+	  <p> Кричат об одном:«Это любовь».</p>
+
+      <div class="mini-player" data-audio="audio/eto-lyubov.mp3">
+        <button class="play-btn">▶</button>
+        <div class="track-info">
+          <div class="track-title">Скриптонит — Это любовь</div>
+          <div class="track-line"><div class="track-progress"></div></div>
+          <div class="track-time"><span class="current-time">0:00</span><span class="duration">0:00</span></div>
+        </div>
+        <input type="range" class="volume-slider" min="0" max="1" step="0.01">
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+let activeAudio = null;
+let activePlayer = null;
+let globalVolume = 0.5;
+
+document.querySelectorAll('.mini-player').forEach(player => {
+  const btn = player.querySelector('.play-btn');
+  const audio = new Audio(player.dataset.audio);
+  const volume = player.querySelector('.volume-slider');
+  const progress = player.querySelector('.track-progress');
+  const line = player.querySelector('.track-line');
+  const cur = player.querySelector('.current-time');
+  const dur = player.querySelector('.duration');
+
+  audio.volume = globalVolume;
+  volume.value = globalVolume;
+
+  const fmt = t => `${Math.floor(t/60)}:${String(Math.floor(t%60)).padStart(2,'0')}`;
+
+  audio.addEventListener('loadedmetadata', () => dur.textContent = fmt(audio.duration));
+  audio.addEventListener('timeupdate', () => {
+    progress.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    cur.textContent = fmt(audio.currentTime);
+  });
+
+  btn.onclick = () => {
+    if (activeAudio && activeAudio !== audio) {
+      activeAudio.pause();
+      activePlayer.querySelector('.play-btn').textContent = '▶';
+    }
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = '⏸';
+      activeAudio = audio;
+      activePlayer = player;
+    } else {
+      audio.pause();
+      btn.textContent = '▶';
+    }
+  };
+
+  line.onclick = e => {
+    const r = line.getBoundingClientRect();
+    audio.currentTime = ((e.clientX - r.left) / r.width) * audio.duration;
+  };
+
+  volume.oninput = () => {
+    audio.volume = volume.value;
+    globalVolume = volume.value;
+  };
+});
+</script>
+
+</body>
+</html>
